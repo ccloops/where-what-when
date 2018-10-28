@@ -1,0 +1,30 @@
+{
+  "name": "where-what-when",
+  "version": "1.0.0",
+  "description": "api calls",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccloops/where-what-when.git"
+  },
+  "keywords": [
+    "api",
+    "jquery",
+    "server"
+  ],
+  "author": "Catherine Looper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ccloops/where-what-when/issues"
+  },
+  "homepage": "https://github.com/ccloops/where-what-when#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4"
+  }
+}
