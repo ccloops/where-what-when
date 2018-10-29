@@ -22,8 +22,8 @@ app.get('/location', (request, response) => {
 });
 
 app.get('/weather', getWeather);
-
 app.get('/yelp', getYelp);
+app.get('/movies', getMovies);
 
 function handleError(error, response) {
   console.error('__ERROR__', error);
@@ -95,6 +95,18 @@ function getYelp(request, response) {
      return new Yelp(business);
    })
    response.send(yelpInformation);
+  })
+  .catch(error => handleError(error, response));
+}
+
+function getMovies(request, response) {
+  const URL = `https://api.themoviedb.org/3/search/movie/?api_key=${process.env.MOVIE_API_KEY}&language=en-US&page=1&query=${request.query.data.search_query}`;
+  superagent.get(URL)
+  .then(data => {
+    const movieInformation = data.body.results.map(movie => {
+      return new Movie(movie);
+    })
+    response.send(movieInformation);
   })
   .catch(error => handleError(error, response));
 }
