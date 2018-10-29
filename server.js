@@ -50,6 +50,16 @@ function Yelp(restaurant) {
   this.url = restaurant.url;
 }
 
+function Movie(movie) {
+  this.title = movie.title;
+  this.overview = movie.overview;
+  this.average_votes = movie.vote_average;
+  this.total_votes = movie.vote_count;
+  this.image_url = 'https://image.tmdb.org/t/p/w200_and_h300_bestv2' + movie.poster_path;
+  this.popularity = movie.popularity;
+  this.released_on = movie.release_date;
+}
+
 function getCoordinates(query) {
   const URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
   return superagent.get(URL)
